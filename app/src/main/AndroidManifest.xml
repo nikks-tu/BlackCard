@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.techuva.blackcard">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <!--
+     Creates a custom permission so only this app can receive its messages.
+
+     NOTE: the permission *must* be called PACKAGE.permission.C2D_MESSAGE,
+           where PACKAGE is the application's package name.
+    -->
+    <uses-permission
+        android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
+        android:protectionLevel="signature"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:allowBackup="false"
+        android:clearTaskOnLaunch="true"
+        android:fullBackupOnly="false"
+        android:icon="@drawable/black_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/black_logo"
+        android:requestLegacyExternalStorage="true"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/MyTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning,HardcodedDebugMode"
+        tools:replace="icon, label, android:allowBackup"
+        tools:targetApi="q"
+        android:debuggable="true"
+        android:testOnly="false"
+        android:name=".contus.MApplication">
+
+
+        <receiver
+            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsService"
+            android:enabled="true"
+            android:exported="false" />
+        <!--
+             Optionally, register CampaignTrackingReceiver and CampaignTrackingService to enable
+             installation campaign reporting
+        -->
+        <receiver
+            android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.analytics.globalConfigResource"
+            android:resource="@xml/global_tracker" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5233838238389564~4923604875" />
+
+        <activity
+            android:name=".contus.activity.SplashScreenActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contusfly.activities.ActivityChatView"
+            android:configChanges="orientation|screenSize|screenLayout"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".contus.pollreview.PollReviewQuestionParticipation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.activity.CountryActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.search.SearchActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contusfly.privatepolls.PrivatePolls"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contusfly.privatepolls.PrivatePollLikes"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contusfly.privatepolls.PrivatePollComments"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.search.SearchPollReview"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.search.SearchPollComments"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.activity.LocationActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.residemenu.MenuActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.residemenu.MenuActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.activity.Welcome"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.contus.activity.Welcome" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.activity.TermsAndCondition"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.activity.TermsAndCondition" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".new_changes.locationapi.GooglePlacesAutocompleteActivity" />
+        <activity
+            android:name=".contus.campaignparticipate.CampignPollReview"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.publicpoll.CampignPollReview" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.userpolls.UserPollReview"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.publicpoll.UserPollReview" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.campaignparticipate.CampaignPollComments"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.publicpoll.CampaignPollComments" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.comments.PollComments"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.comments.PollComments" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.activity.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.contus.activity.RegisterActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.activity.AccountVerification"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.contus.activity.AccountVerification" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.mypolls.MyPollComments"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.contus.mypolls.MyPollComments" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.mypolls.MyPollsReview"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.contus.mypolls.MyPollsReview" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.activity.PersonalInfo"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.contus.activity.PersonalInfo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.views.VideoLandscapeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.contus.Views.VideoLandscapeActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.userpolls.FullImageView"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.publicpoll.FullImageView" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.likes.PollLikes"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.likes.Likes" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.publicpoll.CampaignLikes"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.publicpoll.CampaignLikes" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.publicpoll.CampaignComments"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.publicpoll.CampaignComments" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.participation.Participation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.participation.Participation" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contus.campaignparticipate.Participate"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.contus.publicpoll.Participate" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contusfly.createpoll.MultipleOptions"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.contus.createpoll.MutltipleOptions" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contusfly.createpoll.PhotoComparison"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.techuva.blackcard.contus.createpoll.PhotoComaparison" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contusfly.createpoll.YesOrNo"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.contus.createpoll.YesOrNo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.techuva.blackcard.new_changes.fragments.AddComplaint"/>
+        <activity
+            android:name=".contusfly.createpoll.GroupDisplay"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contus.myprofile.EditProfile"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.contus.myprofile.EditProfile" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contusfly.activities.ActivityImageView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ActivitySelectContact"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ActivityNewGroup"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".contusfly.activities.ActivityCreateGroup"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ActivityCommonEditor"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".contusfly.activities.ActivityGroupInfo"
+            android:configChanges="orientation|screenSize|screenLayout"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ActivityAddRoster"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ActivityShareMsg"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ActivityUserProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ActivityMapView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.createpoll.CreatePollOptions"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ImagePreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ActivityMessageInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ActivityPickContact"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.activities.ActivitySelectMapView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contusfly.createpoll.ContactDisplay"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity android:name="eu.janmuller.android.simplecropimage.CropImage" />
+
+        <receiver android:name=".contusfly.NetworkStateReceiver">
+            <intent-filter>
+                <action
+                    android:name="android.net.conn.CONNECTIVITY_CHANGE"
+                    tools:ignore="BatteryLife" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <service
+            android:name=".contusfly.service.ChatService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.contus.service.action.CONNECT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND"
+            tools:ignore="UsingC2DM">
+            <intent-filter>
+
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.polls.polls" />
+            </intent-filter>
+        </receiver> <!-- SMS Receiver -->
+        <receiver
+            android:name=".contus.smsreciver.SmsReceiver"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter android:priority="99999">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.techuva.blackcard.polls.GCMIntentService"
+            android:enabled="true"
+            tools:ignore="Instantiatable" />
+        <!--
+            <provider
+            android:name="com.aviary.android.feather.sdk.internal.cds.AviaryCdsProvider"
+            android:authorities="com.polls.polls.AviaryCdsProvider"
+            android:exported="false"
+            android:process=":aviary_cds" />
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBuNhiVlTvGujzDCx_cCFacTsWa6Mf2xNg" />
+        <meta-data
+            android:name="android.app.searchable"
+            android:resource="@xml/searchable" />
+
+        <service
+            android:name=".contusfly.service.FirebaseMessagingService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".contusfly.service.FirebaseInstanceIDService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <!--
+    <activity
+            android:name="com.new_chanages.Rewards_Activty"
+            android:label="Rewards"
+            android:theme="@style/MyTheme" />
+        -->
+        <activity android:name=".new_changes.AnnouncementLikes_actvty" />
+        <activity
+            android:name=".new_changes.Announcement_comments_Act"
+            android:label="@string/title_activity_announcement_comments_"
+            android:theme="@style/MyTheme" />
+        <activity android:name=".new_changes.SignUpActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.techuva.blackcard.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- ressource file to create -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+    </application>
+
+
+
+
+
+</manifest>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "143028033437",
+    "firebase_url": "https://blackcard-fa498.firebaseio.com",
+    "project_id": "blackcard-fa498",
+    "storage_bucket": "blackcard-fa498.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143028033437:android:55e7c44f4fba08199cc174",
+        "android_client_info": {
+          "package_name": "com.techuva.blackcard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143028033437-3qso866fkuecpdg58be9et03mfhvht9b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXcWsK7tIhxi9AHTEb1-xbwbeiZGXUuVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143028033437-3qso866fkuecpdg58be9et03mfhvht9b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
